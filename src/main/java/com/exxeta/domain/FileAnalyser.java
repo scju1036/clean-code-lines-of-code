@@ -21,7 +21,7 @@ public class FileAnalyser {
         for (String line : sourceCode) {
             totalLines++;
 
-            if(line.isEmpty() || line.startsWith(COMMENT) || line.isBlank()){
+            if(line.startsWith(COMMENT) || line.isBlank()){
                 emptyLines++;
             }
         }
