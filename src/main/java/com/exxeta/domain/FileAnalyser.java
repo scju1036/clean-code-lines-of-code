@@ -23,7 +23,7 @@ public class FileAnalyser {
         for (String line : sourceCode) {
             totalLines++;
 
-            if(line.isEmpty() || line.startsWith(COMMENT) || line.replaceAll("REGEX","").length() == 0 ){
+            if(line.isEmpty() || line.startsWith(COMMENT) || line.isBlank()){
                 emptyLines++;
             }
         }
