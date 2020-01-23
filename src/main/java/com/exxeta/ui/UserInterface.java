@@ -16,7 +16,8 @@ public class UserInterface {
             linesOfCode += locStat.getLinesOfCode();
         }
 
-        System.out.println("Total: " + total);
-        System.out.println("Total Lines of Code: " + linesOfCode);
+        System.out.println("Total:");
+        System.out.println("\tLines: " + total);
+        System.out.println("\tLOC:   " + linesOfCode);
     }
 }

@@ -18,12 +18,7 @@ public class FileAnalyser {
         long totalLines = sourceCode.size();
         locStat.setTotalLines(totalLines);
 
-        long emptyLines = 0;
-        for (String line : sourceCode) {
-            if(line.startsWith(COMMENT) || line.isBlank()){
-                emptyLines++;
-            }
-        }
+        long emptyLines = sourceCode.stream().filter(s -> s.startsWith(COMMENT) || s.isBlank()).count();
         locStat.setLinesOfCode(locStat.getTotalLines() - emptyLines);
 
         return locStat;
