@@ -1,17 +1,11 @@
 package com.exxeta.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.function.Consumer;
 
 public class LOCStart {
 
-    public static List<LOCStat> start(String[] args) {
+    public static void start(String[] args, Consumer<String> fileNameConsumer) {
         String path = ArgumentReader.getPath(args);
-        List<String> fileNames = FolderExplorer.findFileNames(path);
-        List<LOCStat> locStats = new ArrayList<>();
-        for (String fileName : fileNames) {
-            locStats.add(FileAnalyser.analyseFile(fileName));
-        }
-        return locStats;
+        FolderExplorer.findFileNames(path, fileNameConsumer);
     }
 }
