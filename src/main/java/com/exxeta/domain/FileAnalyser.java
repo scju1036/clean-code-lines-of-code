@@ -15,19 +15,16 @@ public class FileAnalyser {
         LOCStat locStat = new LOCStat();
         locStat.setFileName(filename);
 
-        long totalLines = 0;
+        long totalLines = sourceCode.size();
+        locStat.setTotalLines(totalLines);
+
         long emptyLines = 0;
-
         for (String line : sourceCode) {
-            totalLines++;
-
             if(line.startsWith(COMMENT) || line.isBlank()){
                 emptyLines++;
             }
         }
-
-        locStat.setLinesOfCode(totalLines - emptyLines);
-        locStat.setTotalLines(totalLines);
+        locStat.setLinesOfCode(locStat.getTotalLines() - emptyLines);
 
         return locStat;
     }
