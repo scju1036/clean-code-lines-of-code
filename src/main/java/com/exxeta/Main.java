@@ -1,10 +1,8 @@
 package com.exxeta;
 
 
-import com.exxeta.domain.ArgumentReader;
-import com.exxeta.domain.FileAnalyser;
-import com.exxeta.domain.FolderExplorer;
-import com.exxeta.domain.LOCStat;
+import com.exxeta.domain.*;
+import com.exxeta.ui.UserInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +10,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String path = ArgumentReader.getPath(args);
-        List<String> fileNames = FolderExplorer.findFileNames(path);
-        List<LOCStat> locStats = new ArrayList<>();
-        for (String fileName : fileNames) {
-            locStats.add(FileAnalyser.analyseFile(fileName));
-        }
+        List<LOCStat> stats = LOCStart.start(args);
+        UserInterface.printLocCount(stats);
     }
 }

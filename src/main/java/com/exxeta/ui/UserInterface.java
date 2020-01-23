@@ -11,7 +11,7 @@ public class UserInterface {
         long linesOfCode = 0;
 
         for (LOCStat locStat : locStats) {
-            System.out.println(locStat.getFileName() + " " + locStat.getTotalLines() + locStat.getLinesOfCode());
+            System.out.println(locStat.getFileName() + " " + locStat.getTotalLines() + " " + locStat.getLinesOfCode());
             total += locStat.getTotalLines();
             linesOfCode += locStat.getLinesOfCode();
         }
