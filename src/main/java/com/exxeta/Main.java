@@ -1,9 +1,15 @@
 package com.exxeta;
 
 
+import com.exxeta.domain.ArgumentReader;
+import com.exxeta.domain.FolderExplorer;
+
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("N(ext page, P(revious page, F(irst page, L(ast page, eX(it");
+        String path = ArgumentReader.getPath(args);
+        List<String> fileNames = FolderExplorer.findFileNames(path);
     }
 }
