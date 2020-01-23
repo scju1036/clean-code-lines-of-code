@@ -5,15 +5,13 @@ import java.util.List;
 public class FileAnalyser {
 
     private final static String COMMENT = "//";
-    private final static String REGEX = "\\s+";
 
-
-    public LOCStat analyseFile(String filename){
+    public static LOCStat analyseFile(String filename){
         List<String> sourceCode = FileReader.readFile(filename);
         return analyse(filename, sourceCode);
     }
 
-    public LOCStat analyse(String filename, List<String> sourceCode){
+    private static LOCStat analyse(String filename, List<String> sourceCode){
         LOCStat locStat = new LOCStat();
         locStat.setFileName(filename);
 
